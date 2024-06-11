@@ -32,4 +32,38 @@ const addProduct = function (req, res) {
 }
 //returns the new object in an array
 
-module.exports = { getProducts, addProduct};
+
+const deleteProduct = (req, res) => {
+  dataTables.Product.findByIdAndDelete(req.params._id)
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+}
+//returns the deleted object
+
+
+const updateProduct = (req, res) => {
+  dataTables.Product.findByIdAndUpdate(
+    req.params._id, 
+    {
+      name: req.body.name,
+      category: req.body.category,
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image,
+      quantity: req.body.quantity
+    }, 
+    { new: true }  // This option returns the updated Product (if false traja3 l product l9dim)
+  )
+    .then((result) => {
+      res.status(200).send(result); //result is an object (mch array)
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+module.exports = { getProducts, addProduct , updateProduct , deleteProduct};
