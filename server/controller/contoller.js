@@ -1,6 +1,6 @@
 const dataTables = require('../model/models.js')
 
-const selectAll = function (req, res) {
+const getProducts = function (req, res) {
   dataTables.Product.find({})
     .then((items) => {
       res.status(200).send(items);
@@ -9,6 +9,7 @@ const selectAll = function (req, res) {
       res.status(500).send(error);
     });
 };
+//returns an array
 
 
 const addProduct = function (req, res) {
@@ -29,5 +30,6 @@ const addProduct = function (req, res) {
       res.status(500).send(err);
     })
 }
+//returns the new object in an array
 
-module.exports = { selectAll, addProduct};
+module.exports = { getProducts, addProduct};

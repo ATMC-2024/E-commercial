@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// Log any database connection errors
 db.on('error', (error) => {
   console.error('MongoDB connection error:', error);
 });
