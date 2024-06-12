@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-
+ 
 const db = require("./database/index.js");  // Import database connection
 const Router = require('./routes/routers.js')
 

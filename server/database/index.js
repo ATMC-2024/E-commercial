@@ -7,7 +7,7 @@ mongoose.connect(mongoURI)
   console.log("db connected");
 }).catch((error) => {
   console.error("db connection error:", error);
-});
+}); 
 
 const db = mongoose.connection;
 

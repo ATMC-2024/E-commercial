@@ -5,7 +5,7 @@ const getProducts = function (req, res) {
     .then((items) => {
       res.status(200).send(items);
     })
-    .catch((error) => {
+    .catch((error) => { 
       res.status(500).send(error);
     });
 };
